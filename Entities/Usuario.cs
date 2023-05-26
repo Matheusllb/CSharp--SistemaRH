@@ -1,4 +1,5 @@
 ﻿using Pim3Semestre.Entities.Enums;
+using Pim3Semestre.Entities.Static;
 
 namespace Pim3Semestre.Entities
 {
@@ -22,7 +23,8 @@ namespace Pim3Semestre.Entities
         {
             if (Inativo == false) 
             {
-                
+
+                TelaLogin();
             }
         }
 
