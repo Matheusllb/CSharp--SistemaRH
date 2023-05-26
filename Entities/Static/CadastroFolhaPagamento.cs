@@ -4,25 +4,21 @@ namespace Pim3Semestre.Entities.Static
 {
     public class CadastroFolhaPagamento
     {
-        public FolhaPagamento TelaCadastro(Empresa empresa, Salario salario, ItensFolha itens)
+        public FolhaPagamento TelaCadastro(Empresa empresa, Salario salBruto, ItensFolha itens)
         {
             Console.WriteLine("---------------------------------------------------------------");
             Console.WriteLine("--------------------NOVA FOLHA-DE-PAGAMENTO--------------------");
             Console.WriteLine("---------------------------------------------------------------");
             Console.WriteLine();
             Console.WriteLine("Dados Iniciais:");
-            Random random = new Random();
-            int id = random.Next();
-            Console.Write("Data do fechamento: ");
-            DateTime dataFec = DateTime.Parse(Console.ReadLine());
+            Random random = new Random(); //Processo temporario para salvar id sem que o usuario tenha que informa-lo
+            int id = random.Next();       // Random gera numero aleatorio e id recebe
             Console.Write("Data do pagamento: ");
             DateTime dataPag = DateTime.Parse(Console.ReadLine());
-            Console.Write("Salario bruto R$: ");
-            decimal salBruto = decimal.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             Console.Write("Hora-extra: ");
             decimal horaExtra = decimal.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             Console.Clear();
-            FolhaPagamento novaFolhaP = new FolhaPagamento(id, empresa, dataPag, salario, horaExtra, itens);
+            FolhaPagamento novaFolhaP = new FolhaPagamento(id, empresa, dataPag, salBruto, horaExtra, itens);
             Console.WriteLine("--------------------------------------------------------------");
             Console.WriteLine("--------------------FOLHA REGISTRADA--------------------");
             Console.WriteLine("--------------------------------------------------------------");

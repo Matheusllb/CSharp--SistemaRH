@@ -8,15 +8,17 @@ namespace Pim3Semestre.Entities
         public Endereco Endereco { get; protected set; }
         public string Nome { get; protected set; }
         public string Cpf { get; protected set; }
+        public DateTime DataNascimento { get; protected set; }
         public EstadoCivil EstadoCivil { get; protected set; }
 
         public Pessoa() { }
-        public Pessoa(int id, Endereco endereco, string nome, string cpf, EstadoCivil estadoCivil)
+        public Pessoa(int id, Endereco endereco, string nome, string cpf, DateTime dataNascimento, EstadoCivil estadoCivil)
         {
             Id = id;
             Endereco = endereco;
             Nome = nome;
             Cpf = cpf;
+            DataNascimento = dataNascimento;
             EstadoCivil = estadoCivil;
         }
     }

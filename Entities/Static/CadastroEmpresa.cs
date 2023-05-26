@@ -11,8 +11,8 @@ namespace Pim3Semestre.Entities.Static
             Console.WriteLine("----------------------------------------------------");
             Console.WriteLine();
             Console.WriteLine("Dados Empresariais:");
-            Random random = new Random();
-            int id = random.Next();
+            Random random = new Random(); //Processo temporario para salvar id sem que o usuario tenha que informa-lo
+            int id = random.Next();       // Random gera numero aleatorio e id recebe
             Console.Write("Nome: ");
             string nome = Console.ReadLine();
             Console.Write("CNPJ: ");
@@ -26,14 +26,14 @@ namespace Pim3Semestre.Entities.Static
             Console.WriteLine();
             Console.WriteLine("----------------------ENDEREÇO----------------------");
             //--------------------------------------------------------------------------
-            int idCidade = random.Next();
+            int idCidade = random.Next(); // Random gera numero aleatorio e id recebe
             Console.Write("Cidade: ");
             string nomeCidade = Console.ReadLine();
-            Console.WriteLine("Estado (UF):");
+            Console.Write("Estado (UF): ");
             Estado uf = Enum.Parse<Estado>(Console.ReadLine());
             Cidade cidade = new Cidade(idCidade, nomeCidade, uf);
             //--------------------------------------------------------------------------
-            int idEndereco = random.Next();
+            int idEndereco = random.Next(); // Random gera numero aleatorio e id recebe
             Console.Write("Logradouro: ");
             string logradouro = Console.ReadLine();
             Console.Write("Número: ");

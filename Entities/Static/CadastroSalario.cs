@@ -12,8 +12,8 @@ namespace Pim3Semestre.Entities.Static
             Console.WriteLine("----------------------------------------------------");
             Console.WriteLine();
             Console.WriteLine("Dados Salariais:");
-            Random random = new Random();
-            int id = random.Next();
+            Random random = new Random(); //Processo temporario para salvar id sem que o usuario tenha que informa-lo
+            int id = random.Next();       // Random gera numero aleatorio e id recebe
             Console.Write("Valor R$: ");
             decimal valor = decimal.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             Console.Write("Data de início (dd/MM/yyyy): ");

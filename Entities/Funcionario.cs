@@ -9,10 +9,9 @@ namespace Pim3Semestre.Entities
         public DateTime DataAdmissao { get; protected set; }
         public Empresa Empresa { get; protected set; }
 
-        public Funcionario() { }
 
-        public Funcionario(int id, Endereco endereco, string nome, string cpf, EstadoCivil estadoCivil,
-            int idFuncionario, string email, DateTime dataAdimissao, Empresa empresa) : base(id, endereco, nome, cpf, estadoCivil)
+        public Funcionario(int id, Endereco endereco, string nome, string cpf, DateTime dataNascimento, EstadoCivil estadoCivil,
+        int idFuncionario, string email, DateTime dataAdimissao, Empresa empresa) : base(id, endereco, nome, cpf, dataNascimento, estadoCivil)
         {
             IdFuncionario = idFuncionario;
             Email = email;

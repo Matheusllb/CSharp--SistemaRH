@@ -9,8 +9,8 @@
             Console.WriteLine("--------------------------------------------------");
             Console.WriteLine();
             Console.WriteLine("Dados Cargo:");
-            Random random = new Random();
-            int id = random.Next();
+            Random random = new Random();  //Processo temporario para salvar id sem que o usuario tenha que informa-lo
+            int id = random.Next();        // Random gera numero aleatorio e id recebe
             Console.Write("Nome: ");
             string nome = Console.ReadLine();
             Console.Clear();
