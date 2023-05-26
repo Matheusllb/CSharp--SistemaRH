@@ -2,6 +2,7 @@
 {
     public class FolhaPagamento
     {
+        public int Id { get; private set; }
         public Empresa Empresa { get; private set; }
         public DateTime DataFechamento { get; private set; }
         public DateTime DataPagamento { get; private set; }
@@ -15,9 +16,10 @@
         public ItensFolha Itens { get; private set; }
         public decimal HoraExtra { get; private set; }
 
-        public FolhaPagamento(Empresa empresa, DateTime pagamento,
+        public FolhaPagamento(int id, Empresa empresa, DateTime pagamento,
          Salario salarioBruto, decimal horaExtra, ItensFolha itens)
         {
+            Id = id;
             Empresa = empresa;
             DataFechamento = DateTime.Now;
             DataPagamento = pagamento;

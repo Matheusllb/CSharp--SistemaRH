@@ -2,13 +2,14 @@
 
 namespace Pim3Semestre.Entities.Static
 {
-    public class CadastroUsuario
+    public class CadastroFuncionario
     {
-        public Usuario TelaCadastro()
+        
+        public Funcionario TelaCadastro(Empresa empresa)
         {
-            Console.WriteLine("----------------------------------------------------");
-            Console.WriteLine("--------------------NOVO USUARIO--------------------");
-            Console.WriteLine("----------------------------------------------------");
+            Console.WriteLine("--------------------------------------------------------");
+            Console.WriteLine("--------------------NOVO FUNCIONARIO--------------------");
+            Console.WriteLine("--------------------------------------------------------");
             Console.WriteLine();
             Console.WriteLine("Dados Pessoais:");
             Random random = new Random();
@@ -20,7 +21,7 @@ namespace Pim3Semestre.Entities.Static
             Console.Write("Estado Civil: ");
             EstadoCivil estadoCivil = Enum.Parse<EstadoCivil>(Console.ReadLine());
             Console.WriteLine();
-            Console.WriteLine("----------------------ENDEREÇO----------------------");
+            Console.WriteLine("------------------------ENDEREÇO------------------------");
             int idEndereco = random.Next();
             int idCidade = random.Next();
             //--------------------------------------------------------------------------
@@ -40,33 +41,26 @@ namespace Pim3Semestre.Entities.Static
             string cep = Console.ReadLine();
             Endereco endereco = new Endereco(idEndereco, logradouro, num, bairro, cep, cidade);
             Console.Clear();
-            Console.WriteLine("----------------------------------------------------");
-            Console.WriteLine("--------------------NOVO USUARIO--------------------");
-            Console.WriteLine("----------------------------------------------------");
+            Console.WriteLine("--------------------------------------------------------");
+            Console.WriteLine("--------------------NOVO FUNCIONARIO--------------------");
+            Console.WriteLine("--------------------------------------------------------");
             Console.WriteLine();
-            Console.WriteLine("Dados de Usuario:");
-            int idUsuario = random.Next();
-            Console.Write("Defina seu login: ");
-            string login = Console.ReadLine();
-            Console.Write("Defina sua senha: ");
-            string senha = Console.ReadLine();
-            Console.Write("Confirmar senha: ");
-            string confirmaSenha = Console.ReadLine();
-            while (senha != confirmaSenha)
-            {
-                Console.WriteLine("\nSenhas não coincidem!");
-                Console.Write("Confirmar senha: ");
-                confirmaSenha = Console.ReadLine();
-            }
+            Console.WriteLine("Dados de Funcionario:");
+            int idFuncionario = random.Next();
+            Console.Write("Email: ");
+            string email = Console.ReadLine();
+            Console.WriteLine("Data de admissão (dd/MM/yyyy): ");
+            DateTime dataAdmissao = DateTime.Parse(Console.ReadLine());
             Console.Clear();
-            Pessoa novoUsuario = new Usuario(id, endereco, nome, cpf, estadoCivil, idUsuario, login, senha);
-            Console.WriteLine("------------------------------------------------------");
-            Console.WriteLine("--------------------USUARIO CRIADO--------------------");
-            Console.WriteLine("------------------------------------------------------");
+            Pessoa novoFuncionario = new Funcionario(id, endereco, nome, cpf, estadoCivil, idFuncionario, email, dataAdmissao, empresa);
+            Console.WriteLine("--------------------------------------------------------------");
+            Console.WriteLine("--------------------FUNCIONARIO REGISTRADO--------------------");
+            Console.WriteLine("--------------------------------------------------------------");
             Console.WriteLine("\nPressione 'Enter' para continuar...");
             Console.ReadKey();
             Console.Clear();
-            return (Usuario)novoUsuario;
+            return (Funcionario)novoFuncionario;
         }
     }
 }
+

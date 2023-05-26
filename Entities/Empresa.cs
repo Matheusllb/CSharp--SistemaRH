@@ -10,6 +10,8 @@
         public string Telefone { get; private set; }
         public Endereco Endereco { get; private set; }
 
+        public Empresa() { }
+
         public Empresa(int id, string nome, string cnpj, string setor, string email, string telefone, Endereco endereco)
         {
             Id = id;

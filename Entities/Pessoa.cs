@@ -10,6 +10,7 @@ namespace Pim3Semestre.Entities
         public string Cpf { get; protected set; }
         public EstadoCivil EstadoCivil { get; protected set; }
 
+        public Pessoa() { }
         public Pessoa(int id, Endereco endereco, string nome, string cpf, EstadoCivil estadoCivil)
         {
             Id = id;
