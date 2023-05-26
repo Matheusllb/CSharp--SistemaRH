@@ -3,7 +3,7 @@ using Pim3Semestre.Entities.Enums;
 
 namespace Pim3Semestre.Entities.Static
 {
-    public static class TelaLogin
+    public static class CadastroUsuario
     {
         public static void Cadastro()
         {
