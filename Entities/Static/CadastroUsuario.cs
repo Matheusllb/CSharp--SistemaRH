@@ -3,9 +3,9 @@ using Pim3Semestre.Entities.Enums;
 
 namespace Pim3Semestre.Entities.Static
 {
-    public static class CadastroUsuario
+    public class CadastroUsuario
     {
-        public static void Cadastro()
+        public void TelaCadastro()
         {
             Console.WriteLine("----------------------------------------------------");
             Console.WriteLine("--------------------NOVO USUARIO--------------------");

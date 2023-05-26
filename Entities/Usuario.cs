@@ -19,13 +19,14 @@ namespace Pim3Semestre.Entities
             Senha = senha;
         }
 
-        public void CriaUsuario()
+        public Usuario CriaUsuario()
         {
             if (Inativo == false) 
             {
-
-                TelaLogin();
+                CadastroUsuario cadastro = new CadastroUsuario();
+                cadastro.TelaCadastro();
             }
+            return this;
         }
 
     }
