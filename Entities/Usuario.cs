@@ -150,9 +150,9 @@ namespace Pim3Semestre.Entities
             List<Empresa> empresasEncontrada = Empresas.FindAll(e => e.Endereco.Cep == cep);
             return empresasEncontrada;
         }
-        public void ProcuraEmpresaPorLogradouroENumero(string logradouro, int num)
+        public void ProcuraEmpresaPorLogradouro(string logradouro)
         {
-            Empresa empresaEncontrada = Empresas.Find(e => e.Endereco.NomeLogradouro == logradouro && e.Endereco.Numero == num);
+            Empresa empresaEncontrada = Empresas.Find(e => e.Endereco.NomeLogradouro == logradouro);
             if (empresaEncontrada != null)
             {
                 Console.WriteLine($"Empresa encontrada: {empresaEncontrada}");
@@ -170,11 +170,118 @@ namespace Pim3Semestre.Entities
 
         //-----------------------------------------------------Métodos para Funcionário----------------------------------------------------
 
-        public void CadastraFuncionario(Empresa empresa)
+        public void CadastraFuncionario(Empresa empresa, Cargo cargo)
         {
             CadastroFuncionario cadastro = new CadastroFuncionario();
-            Funcionario novoFuncionario = cadastro.TelaCadastro(empresa);
+            Funcionario novoFuncionario = cadastro.TelaCadastro(empresa, cargo);
             Funcionarios.Add(novoFuncionario);
+        }
+
+        public void ProcuraFuncionarioPorId(int id)
+        {
+            Funcionario funcionarioEncontrado = Funcionarios.Find(f => f.Id == id);
+            if (funcionarioEncontrado != null)
+            {
+                Console.WriteLine($"Funcionário encontrado: {funcionarioEncontrado}");
+            }
+            else
+            {
+                Console.WriteLine("Funcionário não encontrado.");
+            }
+        }
+
+        public List<Funcionario> ProcuraFuncionarioPorNome(string nome)
+        {
+            List<Funcionario> funcionariosEncontrados = Funcionarios.FindAll(f => f.Nome == nome);
+            if (funcionariosEncontrados != null)
+            {
+                return funcionariosEncontrados;
+            }
+            else
+            {
+                Console.WriteLine("Funcionário não encontrado.");
+            }
+            return funcionariosEncontrados;
+        }
+
+        public List<Funcionario> ProcuraFuncionarioPorDataAdimissao(DateTime dataAdimissao)
+        {
+            List<Funcionario> funcionariosEncontrados = Funcionarios.FindAll(f => f.DataAdmissao == dataAdimissao);
+            if (funcionariosEncontrados != null)
+            {
+                return funcionariosEncontrados;
+            }
+            else
+            {
+                Console.WriteLine("Funcionário não encontrado.");
+            }
+            return funcionariosEncontrados;
+        }
+        public List<Funcionario> ProcuraFuncionarioPorMesNascimento(int mesNascimento)
+        {
+            List<Funcionario> funcionariosEncontrados = Funcionarios.FindAll(f => f.DataNascimento.Month == mesNascimento);
+            if (funcionariosEncontrados != null)
+            {
+                return funcionariosEncontrados;
+            }
+            else
+            {
+                Console.WriteLine("Funcionário não encontrado.");
+            }
+            return funcionariosEncontrados;
+        }
+        public List<Funcionario> ProcuraFuncionarioPorAnoNascimento(int anoNascimento)
+        {
+            List<Funcionario> funcionariosEncontrados = Funcionarios.FindAll(f => f.DataNascimento.Year == anoNascimento);
+            if (funcionariosEncontrados != null)
+            {
+                return funcionariosEncontrados;
+            }
+            else
+            {
+                Console.WriteLine("Funcionário não encontrado.");
+            }
+            return funcionariosEncontrados;
+        }
+        public List<Funcionario> ProcuraFuncionarioPorDataNascimento(DateTime dataNascimento)
+        {
+            List<Funcionario> funcionariosEncontrados = Funcionarios.FindAll(f => f.DataNascimento == dataNascimento);
+            if (funcionariosEncontrados != null)
+            {
+                return funcionariosEncontrados;
+            }
+            else
+            {
+                Console.WriteLine("Funcionário não encontrado.");
+            }
+            return funcionariosEncontrados;
+        }
+
+        public List<Funcionario> ProcuraFuncionarioPorEmpresa(string nomeEmpresa)
+        {
+            List<Funcionario> funcionariosEncontrados = Funcionarios.FindAll(f => f.Empresa.Nome == nomeEmpresa);
+            if (funcionariosEncontrados != null)
+            {
+                return funcionariosEncontrados;
+            }
+            else
+            {
+                Console.WriteLine("Funcionário não encontrado.");
+            }
+            return funcionariosEncontrados;
+        }
+        public List<Funcionario> ProcuraFuncionarioPorCargo(string cargo)
+        {
+            List<Funcionario> funcionariosEncontrados = Funcionarios.FindAll(f => f.Cargo.Nome == cargo);
+            if (funcionariosEncontrados != null)
+            {
+                return funcionariosEncontrados;
+            }
+            else
+            {
+                Console.WriteLine("Funcionário não encontrado.");
+            }
+            return funcionariosEncontrados;
         }
 
         //--------------------------------------------------------Métodos para Cargos-------------------------------------------------------

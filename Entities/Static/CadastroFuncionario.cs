@@ -5,7 +5,7 @@ namespace Pim3Semestre.Entities.Static
     public class CadastroFuncionario
     {
         
-        public Funcionario TelaCadastro(Empresa empresa)
+        public Funcionario TelaCadastro(Empresa empresa, Cargo cargo)
         {
             Console.WriteLine("--------------------------------------------------------");
             Console.WriteLine("--------------------NOVO FUNCIONARIO--------------------");
@@ -54,7 +54,7 @@ namespace Pim3Semestre.Entities.Static
             Console.Write("Data de admissão (dd/MM/yyyy): ");
             DateTime dataAdmissao = DateTime.Parse(Console.ReadLine());
             Console.Clear();
-            Pessoa novoFuncionario = new Funcionario(id, endereco, nome, cpf, dataNascimento, estadoCivil, idFuncionario, email, dataAdmissao, empresa);
+            Pessoa novoFuncionario = new Funcionario(id, endereco, nome, cpf, dataNascimento, estadoCivil, idFuncionario, email, dataAdmissao, empresa, cargo);
             Console.WriteLine("--------------------------------------------------------------");
             Console.WriteLine("--------------------FUNCIONARIO REGISTRADO--------------------");
             Console.WriteLine("--------------------------------------------------------------");
