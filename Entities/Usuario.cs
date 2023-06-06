@@ -284,6 +284,11 @@ namespace Pim3Semestre.Entities
             return funcionariosEncontrados;
         }
 
+        public void RemoveFuncionario(Funcionario funcionario)
+        {
+            Funcionarios.Remove(funcionario);
+        }
+
         //--------------------------------------------------------Métodos para Cargos-------------------------------------------------------
 
         public void CadastraCargo(Empresa empresa)
@@ -291,6 +296,52 @@ namespace Pim3Semestre.Entities
             CadastroCargo cadastro = new CadastroCargo();
             Cargo novoCargo = cadastro.TelaCadastro(empresa);
             Cargos.Add(novoCargo);
+        }
+
+        public void ProcuraCargoPorId(int id)
+        {
+            Cargo cargoEncontrado = Cargos.Find(c => c.Id == id);
+            if (cargoEncontrado != null)
+            {
+                Console.WriteLine($"Cargo encontrado: {cargoEncontrado}");
+            }
+            else
+            {
+                Console.WriteLine("Cargo não encontrado.");
+            }
+        }
+
+        public List<Cargo> ProcuraCargoPorNome(string nome)
+        {
+            List<Cargo> cargosEncontrados = Cargos.FindAll(c => c.Nome == nome);
+            if (cargosEncontrados != null)
+            {
+                return cargosEncontrados;
+            }
+            else
+            {
+                Console.WriteLine("Cargo não encontrado.");
+            }
+            return cargosEncontrados;
+        }
+
+        public List<Cargo> ProcuraCargoPorEmpresa(string nomeEmpresa)
+        {
+            List<Cargo> cargosEncontrados = Cargos.FindAll(c => c.Empresa.Nome == nomeEmpresa);
+            if (cargosEncontrados != null)
+            {
+                return cargosEncontrados;
+            }
+            else
+            {
+                Console.WriteLine("Cargo não encontrado.");
+            }
+            return cargosEncontrados;
+        }
+
+        public void RemoveCargo(Cargo cargo)
+        {
+            Cargos.Remove(cargo);
         }
 
         //-------------------------------------------------------Métodos para Salários-------------------------------------------------------
@@ -302,6 +353,67 @@ namespace Pim3Semestre.Entities
             Salarios.Add(novoSalario);
         }
 
+        public List<Salario> ProcuraSalarioPorValor(decimal valor)
+        {
+            List<Salario> salariosEncontrados = Salarios.FindAll(s => s.Valor == valor);
+            if (salariosEncontrados != null)
+            {
+                return salariosEncontrados;
+            }
+            else
+            {
+                Console.WriteLine("Salário não encontrado.");
+            }
+            return salariosEncontrados;
+        }
+
+        public List<Salario> ProcuraSalarioPorDataDeInicio(DateTime data)
+        {
+            List<Salario> salariosEncontrados = Salarios.FindAll(s => s.DataInicio == data);
+            if (salariosEncontrados != null)
+            {
+                return salariosEncontrados;
+            }
+            else
+            {
+                Console.WriteLine("Salário não encontrado.");
+            }
+            return salariosEncontrados;
+        }
+
+        public List<Salario> ProcuraSalarioPorFuncionario(string nomeFuncionario)
+        {
+            List<Salario> salariosEncontrados = Salarios.FindAll(s => s.Funcionario.Nome == nomeFuncionario);
+            if (salariosEncontrados != null)
+            {
+                return salariosEncontrados;
+            }
+            else
+            {
+                Console.WriteLine("Salário não encontrado.");
+            }
+            return salariosEncontrados;
+        }
+
+        public List<Salario> ProcuraSalarioPorCargo(string nomeCargo)
+        {
+            List<Salario> salariosEncontrados = Salarios.FindAll(s => s.Cargo.Nome == nomeCargo);
+            if (salariosEncontrados != null)
+            {
+                return salariosEncontrados;
+            }
+            else
+            {
+                Console.WriteLine("Salário não encontrado.");
+            }
+            return salariosEncontrados;
+        }
+
+        public void RemoveSalario(Salario salario)
+        {
+            Salarios.Remove(salario);
+        }
+
         //--------------------------------------------------Métodos para Folhas De Pagamento--------------------------------------------------
 
         public void CadastraFolhaPagamento(Empresa empresa, Salario salBruto, ItensFolha itens)
@@ -309,6 +421,89 @@ namespace Pim3Semestre.Entities
             CadastroFolhaPagamento cadastro = new CadastroFolhaPagamento();
             FolhaPagamento novaFolhaP = cadastro.TelaCadastro(empresa, salBruto, itens);
             Folhas.Add(novaFolhaP);
+        }
+
+        public List<FolhaPagamento> ProcuraFolhaPorEmpresa(string nomeEmpresa)
+        {
+            List<FolhaPagamento> folhasEncontradas = Folhas.FindAll(f => f.Empresa.Nome == nomeEmpresa);
+            if (folhasEncontradas != null)
+            {
+                return folhasEncontradas;
+            }
+            else
+            {
+                Console.WriteLine("Folha não encontrada.");
+            }
+            return folhasEncontradas;
+        }
+
+        public List<FolhaPagamento> ProcuraFolhaPorDataFechamento(DateTime fechamento)
+        {
+            List<FolhaPagamento> folhasEncontradas = Folhas.FindAll(f => f.DataFechamento == fechamento);
+            if (folhasEncontradas != null)
+            {
+                return folhasEncontradas;
+            }
+            else
+            {
+                Console.WriteLine("Folha não encontrada.");
+            }
+            return folhasEncontradas;
+        }
+        
+        public List<FolhaPagamento> ProcuraFolhaPorDataPagamento(DateTime pagamento)
+        {
+            List<FolhaPagamento> folhasEncontradas = Folhas.FindAll(f => f.DataPagamento == pagamento);
+            if (folhasEncontradas != null)
+            {
+                return folhasEncontradas;
+            }
+            else
+            {
+                Console.WriteLine("Folha não encontrada.");
+            }
+            return folhasEncontradas;
+        }
+
+        public List<FolhaPagamento> ProcuraFolhaPorSalarioBruto(decimal valor)
+        {
+            List<FolhaPagamento> folhasEncontrados = Folhas.FindAll(f => f.SalarioBruto.Valor == valor);
+            if (folhasEncontrados != null)
+            {
+                return folhasEncontrados;
+            }
+            else
+            {
+                Console.WriteLine("Folha não encontrada.");
+            }
+            return folhasEncontrados;
+        }
+        public List<FolhaPagamento> ProcuraFolhaPorVencimentos(decimal valor)
+        {
+            List<FolhaPagamento> folhasEncontrados = Folhas.FindAll(f => f.TotalVencimentos == valor);
+            if (folhasEncontrados != null)
+            {
+                return folhasEncontrados;
+            }
+            else
+            {
+                Console.WriteLine("Folha não encontrada.");
+            }
+            return folhasEncontrados;
+        }
+
+        public List<FolhaPagamento> ProcuraFolhaPorItens(ItensFolha itens)
+        {
+            List<FolhaPagamento> folhasEncontrados = Folhas.FindAll(f => f.Itens == itens);
+            if (folhasEncontrados != null)
+            {
+                return folhasEncontrados;
+            }
+            else
+            {
+                Console.WriteLine("Folha não encontrada.");
+            }
+            return folhasEncontrados;
         }
 
     }

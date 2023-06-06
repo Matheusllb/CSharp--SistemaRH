@@ -83,7 +83,7 @@
         }
         public void CalculaTotalLiquido()
         {
-            TotalLiquido = SalarioBruto.Valor - TotalDescontos;
+            TotalLiquido = TotalVencimentos - TotalDescontos;
         }
     }
 }
